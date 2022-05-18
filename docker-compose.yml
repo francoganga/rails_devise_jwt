@@ -3,6 +3,7 @@ services:
   web:
     build: .
     volumes:
+      - vendor:/usr/src/app/node_modules
       - .:/usr/src/app/
     ports:
       - 5100:5100
@@ -14,8 +15,8 @@ services:
 
   db:
     image: postgres:14.1-alpine
-    volumes:
-      - /usr/local/var/postgres:/var/lib/postgresql/data
+    # volumes:
+    #   - /usr/local/var/postgres:/var/lib/postgresql/data
     env_file:
       - .env
 
@@ -24,3 +25,10 @@ services:
     restart: always
     ports:
       - 8080:8080
+volumes:
+  vendor:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ./node_modules
