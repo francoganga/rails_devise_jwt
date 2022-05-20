@@ -16,6 +16,7 @@ services:
       - db
     env_file:
       - .env
+    # command: ["sleep", "infinity"]
 
   db:
     image: postgres:14.1-alpine
@@ -35,4 +36,4 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: ./node_modules
+      device: ${PWD}/node_modules
