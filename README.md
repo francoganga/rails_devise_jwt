@@ -8,6 +8,10 @@
 - POSTGRES_DB="nombre_db"
 - POSTGRES_USER="postgres"
 - POSTGRES_PASSWORD="postgres"
+- DEVISE_SECRET_KEY=clave secreta para los tokens
+
+* Crear directorio node_modules para volumen de desarrollo
+
 
 
 * Ejecutar docker-compose up
